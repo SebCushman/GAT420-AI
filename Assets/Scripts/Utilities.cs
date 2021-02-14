@@ -14,7 +14,7 @@ public static class Utilities {
             result.x = min.x;
         }
         // test result.x < min.x, if true result.x = max.x
-        if(result.x < min.x)
+        else if(result.x < min.x)
         {
             result.x = max.x;
         }
@@ -23,21 +23,26 @@ public static class Utilities {
         {
             result.y = min.y;
         }
-        if (result.y > max.y)
+        else if (result.y < min.y)
         {
-            result.y = min.y;
+            result.y = max.y;
         }
 
         if (result.z > max.z)
         {
             result.z = min.z;
         }
-        if (result.z > max.z)
+        else if (result.z < min.z)
         {
-            result.z = min.z;
+            result.z = max.z;
         }
 
         return result;
+    }
+
+    public static float Dot(Vector3 v1, Vector3 v2)
+    {
+        return (v1.x * v2.x) + (v1.y * v2.y) + (v1.z * v2.z);
     }
 
 }

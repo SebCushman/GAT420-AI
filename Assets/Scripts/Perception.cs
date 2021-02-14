@@ -2,17 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Perception : MonoBehaviour
+public abstract class Perception : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public abstract GameObject[] GetGameObjects();
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+	public static GameObject GetGameObjectFromTag(GameObject[] gameObjects, string tagName)
+	{
+		GameObject result = null;
+		foreach (GameObject gameObject in gameObjects)
+		{
+			if (gameObject.CompareTag(tagName))
+			{
+				result = gameObject;
+				break;
+			}
+		}
+
+		return result;
+	}
 }
